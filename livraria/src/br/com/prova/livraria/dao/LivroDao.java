@@ -2,7 +2,9 @@ package br.com.prova.livraria.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
+import br.com.prova.livraria.modelo.Autor;
 import br.com.prova.livraria.modelo.Livro;
 
 public class LivroDao {
@@ -57,7 +59,12 @@ public class LivroDao {
 
 
 	public void remove(Livro livro) {
-		// TODO Auto-generated method stub
+		for (ListIterator<Livro> itr = LSLivro.listIterator(); itr.hasNext();) {
+			Livro a = itr.next();
+			if (a.getIsbn().equals(livro.getIsbn())) {
+				itr.remove();
+			}
+		}
 		
 	}
 }

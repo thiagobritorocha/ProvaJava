@@ -94,6 +94,7 @@ public class LivroBean implements Serializable {
 	public void remover(Livro livro) {
 		System.out.println("Removendo livro");
 		daoL.remove(livro);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Livro excluido com sucesso!",""));
 	}
 	
 	public void removerAutorDoLivro(Autor autor) {

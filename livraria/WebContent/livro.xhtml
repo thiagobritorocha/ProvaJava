@@ -80,12 +80,9 @@
 					</p:column>
 				</p:dataTable>
 			</p:fieldset>
-			<p:fieldset >
-				<p:panelGrid columns="1">
+			<p:fieldset style="text-align:center">
 					<p:commandButton value="Gravar" action="#{livroBean.gravar}"
 						process="@form" update="@form :formTabelaLivros:tabelaLivros" />
-
-				</p:panelGrid>
 			</p:fieldset>
 
 		</h:form>
@@ -121,13 +118,13 @@
 
 				<p:column headerText="Alterar">
 					<div align="center">
-						<h:commandLink value="altera" action="#{livroBean.carregar(livro)}" />
+						<p:commandLink value="altera" action="#{livroBean.carregar(livro)}" />
 					</div>
 				</p:column>
 
 				<p:column headerText="Remover">
 					<div align="center">	
-						<h:commandLink value="remove" action="#{livroBean.remover(livro)}" />
+						<p:commandLink value="remove" action="#{livroBean.remover(livro)}" update="formTabelaLivros"/>
 					</div>
 				</p:column>
 
