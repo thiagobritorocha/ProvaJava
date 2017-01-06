@@ -93,7 +93,7 @@
 
 		<h:form id="formTabelaLivros">
 			<p:dataTable value="#{livroBean.livros}" var="livro"
-				id="tabelaLivros" paginator="true" rows="5">
+				id="tabelaLivros" paginator="true" rows="5" paginatorPosition="bottom" >
 
 				<f:facet name="header">Livros</f:facet>
 				<p:column headerText="Título" sortBy="#{livro.titulo}"
@@ -120,11 +120,15 @@
 				</p:column>
 
 				<p:column headerText="Alterar">
-					<h:commandLink value="altera" action="#{livroBean.carregar(livro)}" />
+					<div align="center">
+						<h:commandLink value="altera" action="#{livroBean.carregar(livro)}" />
+					</div>
 				</p:column>
 
 				<p:column headerText="Remover">
-					<h:commandLink value="remove" action="#{livroBean.remover(livro)}" />
+					<div align="center">	
+						<h:commandLink value="remove" action="#{livroBean.remover(livro)}" />
+					</div>
 				</p:column>
 
 			</p:dataTable>

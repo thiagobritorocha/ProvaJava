@@ -2,6 +2,7 @@ package br.com.prova.livraria.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import br.com.prova.livraria.modelo.Autor;
 import br.com.prova.livraria.modelo.Livro;
@@ -38,17 +39,21 @@ public class AutorDao {
 	}
 
 	public void remove(Autor autor) {
-		// TODO Auto-generated method stub
-		
+		for (ListIterator<Autor> itr = LSAutor.listIterator(); itr.hasNext();) {
+			Autor a = itr.next();
+			if (a.getId().equals(autor.getId())) {
+				itr.remove();
+			}
+		}
 	}
 
 	public void adiciona(Autor autor) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void atualiza(Autor autor) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

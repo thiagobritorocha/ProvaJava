@@ -63,21 +63,23 @@ public class LivroBean implements Serializable {
 	}
 	
 	public void gravarAutor() {
+		try{
 		Autor autor = daoA.buscaPorId(this.autorId);
 		this.livro.adicionaAutor(autor);
 		System.out.println("Escrito por: " + autor.getNome());
+		}catch(Exception e){
+			FacesMessage facesMessage = facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, e.getMessage(),"");		 
+			FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+		}
 	}
 
 	public void gravar() {
 		System.out.println("Gravando livro " + this.livro.getTitulo());
 
 		if (livro.getAutores().isEmpty()) {
-			FacesContext.getCurrentInstance().addMessage("autor",
-					new FacesMessage("Livro deve ter pelo menos um Autor."));
+			FacesContext.getCurrentInstance().addMessage("autor",new FacesMessage("Livro deve ter pelo menos um Autor."));
 			return;
 		}
-
-	
 		
 		if(this.livro.getId() == null) {
 			daoL.adiciona(this.livro);

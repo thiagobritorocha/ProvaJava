@@ -2,8 +2,10 @@ package br.com.prova.livraria.bean;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.prova.livraria.dao.AutorDao;
 import br.com.prova.livraria.modelo.Autor;
@@ -47,6 +49,8 @@ public class AutorBean {
 	public void remover(Autor autor) {
 		System.out.println("Removendo autor " + autor.getNome());
 		 daoA.remove(autor);
+		 FacesMessage facesMessage = facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Autor excluido com sucesso!","");		 
+		 FacesContext.getCurrentInstance().addMessage(null, facesMessage);
 	}
 	
 	public List<Autor> getAutores() {

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,6 +37,12 @@ public class Livro implements Serializable {
 	}
 
 	public void adicionaAutor(Autor autor) {
+		for (ListIterator<Autor> itr = autores.listIterator(); itr.hasNext();) {
+			Autor a = itr.next();
+			if (a.getNome().equals(autor.getNome())) {
+				throw new RuntimeException("Não é possível adicionar novamente o autor "+autor.getNome()+" !");
+			}
+		}
 		this.autores.add(autor);
 	}
 

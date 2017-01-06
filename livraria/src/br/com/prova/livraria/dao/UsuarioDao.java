@@ -23,7 +23,7 @@ public class UsuarioDao {
 			}
 		}
 		
-		return false;
+		return true;
 				
 	}
 	
